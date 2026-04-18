@@ -2,11 +2,15 @@ name: Freshdesk Email KB Automation
 
 on:
   schedule:
+    # GitHub-hosted cron is the current unattended trigger path.
     - cron: "*/5 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 concurrency:
   group: freshdesk-email-kb-automation
