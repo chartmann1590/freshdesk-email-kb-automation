@@ -23,12 +23,14 @@ import math
 import os
 import re
 import time
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 import requests
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
 
 
 HERE = Path(__file__).resolve().parent
@@ -77,6 +79,36 @@ STOPWORDS = {
     "you",
     "your",
 }
+QUERY_NORMALIZATIONS = (
+    ("log in", "login"),
+    ("sign in", "login"),
+    ("sign-in", "login"),
+    ("sign on", "login"),
+    ("sign-on", "login"),
+    ("username", "user name"),
+    ("e-mail", "email"),
+    ("alert emails", "notifications"),
+    ("alert email", "notification"),
+    ("email alerts", "notifications"),
+    ("notification emails", "notifications"),
+    ("notification email", "notification"),
+    ("weekly digest", "digest frequency"),
+    ("digest emails", "digest frequency"),
+    ("digest email", "digest frequency"),
+    ("display name", "profile"),
+    ("account details", "profile"),
+    ("account page", "account settings profile"),
+    ("personal details", "profile"),
+    ("account info", "profile"),
+    ("remove my account", "delete account"),
+    ("erase my account", "delete account"),
+    ("download my data", "data export"),
+    ("export my data", "data export"),
+    ("turn off", "disable"),
+    ("shut off", "disable"),
+)
+WORD_VECTOR_WEIGHT = 0.72
+CHAR_VECTOR_WEIGHT = 0.28
 
 
 def load_config() -> tuple[str, tuple[str, str], dict]:
@@ -123,6 +155,52 @@ def slug_words(text: str) -> List[str]:
     return [token for token in tokens if len(token) > 1 and token not in STOPWORDS]
 
 
+def normalize_for_matching(text: str) -> str:
+    normalized = strip_html(text).lower()
+    normalized = normalized.replace("/", " ")
+    normalized = normalized.replace("-", " ")
+    normalized = normalized.replace("&", " and ")
+    for source, target in QUERY_NORMALIZATIONS:
+        normalized = normalized.replace(source, target)
+    normalized = re.sub(r"\s+", " ", normalized)
+    return normalized.strip()
+
+
+def split_into_chunks(text: str, max_sentences: int = 3) -> List[str]:
+    clean = strip_html(text)
+    if not clean:
+        return []
+
+    paragraphs = [part.strip() for part in re.split(r"\n{2,}", clean) if part.strip()]
+    if not paragraphs:
+        paragraphs = [clean]
+
+    chunks: List[str] = []
+    for paragraph in paragraphs:
+        sentences = [part.strip() for part in re.split(r"(?<=[.!?])\s+", paragraph) if part.strip()]
+        if not sentences:
+            sentences = [paragraph]
+
+        if len(sentences) <= max_sentences:
+            chunks.append(" ".join(sentences).strip())
+            continue
+
+        for index in range(0, len(sentences), max_sentences - 1):
+            window = sentences[index : index + max_sentences]
+            if window:
+                chunks.append(" ".join(window).strip())
+
+    deduped: List[str] = []
+    seen = set()
+    for chunk in chunks:
+        key = chunk.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(chunk)
+    return deduped
+
+
 def sentence_excerpt(text: str, limit: int = 2) -> str:
     parts = re.split(r"(?<=[.!?])\s+", text.strip())
     parts = [part.strip() for part in parts if part.strip()]
@@ -159,8 +237,12 @@ class KBIndex:
     def __init__(self, client: FreshdeskClient) -> None:
         self.client = client
         self.articles: List[dict] = []
-        self.idf: Dict[str, float] = {}
+        self.chunks: List[dict] = []
         self.loaded_at: Optional[float] = None
+        self.word_vectorizer: Optional[TfidfVectorizer] = None
+        self.char_vectorizer: Optional[TfidfVectorizer] = None
+        self.word_matrix = None
+        self.char_matrix = None
 
     def ensure_loaded(self, max_age_seconds: int = 21600) -> None:
         now = time.time()
@@ -194,29 +276,21 @@ class KBIndex:
 
         cached_ts = float(cached_at)
         self.articles = []
-        doc_freq: Counter = Counter()
         for item in cached_articles:
-            tokens = Counter(item.get("tokens") or {})
-            token_set = set(item.get("token_set") or tokens.keys())
-            for token in token_set:
-                doc_freq[token] += 1
             self.articles.append(
                 {
                     "id": item["id"],
                     "title": item["title"],
                     "body": item["body"],
                     "url": item["url"],
-                    "tokens": tokens,
-                    "token_set": token_set,
+                    "normalized_title": item.get("normalized_title") or normalize_for_matching(item["title"]),
+                    "normalized_body": item.get("normalized_body") or normalize_for_matching(item["body"]),
+                    "chunks": item.get("chunks") or split_into_chunks(item["body"]),
                 }
             )
 
-        article_count = max(len(self.articles), 1)
-        self.idf = {
-            token: math.log((1 + article_count) / (1 + freq)) + 1.0
-            for token, freq in doc_freq.items()
-        }
         self.loaded_at = cached_ts
+        self._rebuild_index()
         age = int(time.time() - cached_ts)
         log(f"KB cache loaded: {len(self.articles)} articles ({age}s old)")
         return age < max_age_seconds
@@ -230,18 +304,62 @@ class KBIndex:
                     "title": article["title"],
                     "body": article["body"],
                     "url": article["url"],
-                    "tokens": dict(article["tokens"]),
-                    "token_set": sorted(article["token_set"]),
+                    "normalized_title": article["normalized_title"],
+                    "normalized_body": article["normalized_body"],
+                    "chunks": article["chunks"],
                 }
                 for article in self.articles
             ],
         }
         KB_CACHE_FILE.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
 
+    def _rebuild_index(self) -> None:
+        self.chunks = []
+        for article in self.articles:
+            normalized_title = article["normalized_title"]
+            for chunk_index, chunk_text in enumerate(article["chunks"]):
+                normalized_chunk = normalize_for_matching(chunk_text)
+                if not normalized_chunk:
+                    continue
+                self.chunks.append(
+                    {
+                        "article_id": article["id"],
+                        "title": article["title"],
+                        "url": article["url"],
+                        "chunk_index": chunk_index,
+                        "text": chunk_text,
+                        "normalized_text": normalized_chunk,
+                        "document": f"{normalized_title}. {normalized_chunk}",
+                    }
+                )
+
+        if not self.chunks:
+            self.word_vectorizer = None
+            self.char_vectorizer = None
+            self.word_matrix = None
+            self.char_matrix = None
+            return
+
+        documents = [chunk["document"] for chunk in self.chunks]
+        self.word_vectorizer = TfidfVectorizer(
+            analyzer="word",
+            ngram_range=(1, 2),
+            min_df=1,
+            stop_words="english",
+            sublinear_tf=True,
+        )
+        self.char_vectorizer = TfidfVectorizer(
+            analyzer="char_wb",
+            ngram_range=(3, 5),
+            min_df=1,
+            sublinear_tf=True,
+        )
+        self.word_matrix = self.word_vectorizer.fit_transform(documents)
+        self.char_matrix = self.char_vectorizer.fit_transform(documents)
+
     def _refresh_live(self) -> None:
         categories = self.client.get("solutions/categories")
         articles: List[dict] = []
-        doc_freq: Counter = Counter()
 
         for category in categories:
             folders = self.client.get(f"solutions/categories/{category['id']}/folders")
@@ -251,69 +369,95 @@ class KBIndex:
                     article = self.client.get(f"solutions/articles/{article_stub['id']}")
                     clean_body = strip_html(article.get("description_text") or article.get("description") or "")
                     clean_title = strip_html(article.get("title") or "")
-                    tokens = slug_words(f"{clean_title} {clean_body}")
-                    token_set = set(tokens)
-                    for token in token_set:
-                        doc_freq[token] += 1
                     articles.append(
                         {
                             "id": article["id"],
                             "title": clean_title,
                             "body": clean_body,
-                            "tokens": Counter(tokens),
-                            "token_set": token_set,
+                            "normalized_title": normalize_for_matching(clean_title),
+                            "normalized_body": normalize_for_matching(clean_body),
+                            "chunks": split_into_chunks(clean_body),
                             "url": article.get("url")
                             or f"https://{os.environ.get('FRESHDESK_DOMAIN', 'soulshineai')}.freshdesk.com/support/solutions/articles/{article['id']}",
                         }
                     )
 
-        article_count = max(len(articles), 1)
-        self.idf = {
-            token: math.log((1 + article_count) / (1 + freq)) + 1.0
-            for token, freq in doc_freq.items()
-        }
         self.articles = articles
         self.loaded_at = time.time()
+        self._rebuild_index()
         self._save_cache()
         log(f"KB index loaded: {len(self.articles)} articles")
 
-    def _vector(self, counts: Counter) -> Dict[str, float]:
-        return {token: count * self.idf.get(token, 1.0) for token, count in counts.items()}
-
-    @staticmethod
-    def _cosine(left: Dict[str, float], right: Dict[str, float]) -> float:
-        if not left or not right:
-            return 0.0
-        shared = set(left) & set(right)
-        numerator = sum(left[token] * right[token] for token in shared)
-        left_norm = math.sqrt(sum(value * value for value in left.values()))
-        right_norm = math.sqrt(sum(value * value for value in right.values()))
-        if not left_norm or not right_norm:
-            return 0.0
-        return numerator / (left_norm * right_norm)
-
     def search(self, query_text: str, limit: int = 3) -> List[Tuple[float, dict]]:
-        query_tokens = slug_words(query_text)
+        if not self.chunks or self.word_vectorizer is None or self.char_vectorizer is None:
+            return []
+
+        normalized_query = normalize_for_matching(query_text)
+        query_tokens = slug_words(normalized_query)
         if not query_tokens:
             return []
 
-        query_counts = Counter(query_tokens)
-        query_vector = self._vector(query_counts)
-        query_lower = query_text.lower()
+        word_query = self.word_vectorizer.transform([normalized_query])
+        char_query = self.char_vectorizer.transform([normalized_query])
+        word_scores = linear_kernel(word_query, self.word_matrix).ravel()
+        char_scores = linear_kernel(char_query, self.char_matrix).ravel()
+
+        article_scores: Dict[int, dict] = defaultdict(
+            lambda: {
+                "title": "",
+                "url": "",
+                "body": "",
+                "chunks": [],
+                "best_excerpt": "",
+                "best_score": 0.0,
+            }
+        )
+        article_map = {article["id"]: article for article in self.articles}
+        query_text_lower = normalized_query.lower()
+        query_token_set = set(query_tokens)
+
+        for index, chunk in enumerate(self.chunks):
+            chunk_score = (WORD_VECTOR_WEIGHT * float(word_scores[index])) + (
+                CHAR_VECTOR_WEIGHT * float(char_scores[index])
+            )
+            if chunk_score <= 0:
+                continue
+
+            title_lower = normalize_for_matching(chunk["title"])
+            if title_lower and title_lower in query_text_lower:
+                chunk_score += 0.18
+
+            title_overlap = len(query_token_set & set(slug_words(title_lower)))
+            if title_overlap:
+                chunk_score += min(title_overlap * 0.03, 0.12)
+
+            article_score = article_scores[chunk["article_id"]]
+            article_score["title"] = chunk["title"]
+            article_score["url"] = chunk["url"]
+            article = article_map[chunk["article_id"]]
+            article_score["body"] = article["body"]
+            article_score["chunks"].append((chunk_score, chunk["text"]))
+            if chunk_score > article_score["best_score"]:
+                article_score["best_score"] = chunk_score
+                article_score["best_excerpt"] = chunk["text"]
+
         scored: List[Tuple[float, dict]] = []
-
-        for article in self.articles:
-            score = self._cosine(query_vector, self._vector(article["tokens"]))
-            title_lower = article["title"].lower()
-            if title_lower and title_lower in query_lower:
-                score += 0.6
-
-            overlap = len(set(query_tokens) & article["token_set"])
-            if overlap:
-                score += min(overlap / 20.0, 0.15)
-
-            if score > 0:
-                scored.append((score, article))
+        for article_id, article in article_scores.items():
+            chunk_list = sorted(article["chunks"], key=lambda item: item[0], reverse=True)
+            supporting = sum(score for score, _ in chunk_list[:2]) * 0.12
+            final_score = article["best_score"] + supporting
+            scored.append(
+                (
+                    final_score,
+                    {
+                        "id": article_id,
+                        "title": article["title"],
+                        "body": article["body"],
+                        "url": article["url"],
+                        "match_excerpt": article["best_excerpt"],
+                    },
+                )
+            )
 
         scored.sort(key=lambda item: item[0], reverse=True)
         return scored[:limit]
@@ -372,7 +516,7 @@ def build_reply_body(ticket: dict, matches: List[Tuple[float, dict]]) -> Optiona
         return None
 
     best_score = matches[0][0]
-    if best_score < 0.18:
+    if best_score < 0.22:
         return None
 
     requester_name = strip_html(ticket.get("requester", {}).get("name") or "there")
@@ -385,9 +529,9 @@ def build_reply_body(ticket: dict, matches: List[Tuple[float, dict]]) -> Optiona
 
     items = []
     for score, article in matches:
-        if score < 0.12:
+        if score < 0.16:
             continue
-        excerpt = sentence_excerpt(article["body"])
+        excerpt = sentence_excerpt(article.get("match_excerpt") or article["body"])
         excerpt_html = (
             html.escape(excerpt) if excerpt else "Open the article for the full step-by-step guidance."
         )
