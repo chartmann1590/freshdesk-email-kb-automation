@@ -1,6 +1,9 @@
 name: Freshdesk Email KB Automation
 
 on:
+  repository_dispatch:
+    types:
+      - freshdesk_ticket_created
   schedule:
     # GitHub-hosted cron is the current unattended trigger path.
     - cron: "*/5 * * * *"
@@ -36,6 +39,7 @@ jobs:
         env:
           FRESHDESK_API_KEY: ${{ secrets.FRESHDESK_API_KEY }}
           FRESHDESK_DOMAIN: soulshineai
+          TARGET_TICKET_ID: ${{ github.event.client_payload.ticket_id }}
         run: python responder.py once
 
       - name: Commit state and KB cache

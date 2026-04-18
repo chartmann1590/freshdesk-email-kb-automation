@@ -11,6 +11,7 @@ Required environment variables:
 Optional environment variables:
     FRESHDESK_DOMAIN=soulshineai
     RESPONDER_LOG_FILE=/path/to/logfile
+    TARGET_TICKET_ID=123
 """
 
 from __future__ import annotations
@@ -346,6 +347,10 @@ def recent_open_email_tickets(client: FreshdeskClient, per_page: int = 50) -> Li
     return results
 
 
+def fetch_ticket(client: FreshdeskClient, ticket_id: int) -> dict:
+    return client.get(f"tickets/{ticket_id}")
+
+
 def has_agent_conversation(client: FreshdeskClient, ticket_id: int) -> bool:
     conversations = client.get(f"tickets/{ticket_id}/conversations")
     return bool(conversations)
@@ -444,13 +449,29 @@ def process_ticket(client: FreshdeskClient, kb_index: KBIndex, state: dict, tick
     return True
 
 
-def run_once(client: FreshdeskClient, kb_index: KBIndex, state: dict) -> int:
+def run_once(
+    client: FreshdeskClient,
+    kb_index: KBIndex,
+    state: dict,
+    target_ticket_id: Optional[int] = None,
+) -> int:
     kb_index.ensure_loaded()
-    tickets = recent_open_email_tickets(client)
-    log(f"Scanning {len(tickets)} recent open email tickets")
+    if target_ticket_id is not None:
+        ticket = fetch_ticket(client, target_ticket_id)
+        tickets = [ticket]
+        log(f"Scanning targeted ticket #{target_ticket_id}")
+    else:
+        tickets = recent_open_email_tickets(client)
+        log(f"Scanning {len(tickets)} recent open email tickets")
     replies = 0
     for ticket in tickets:
         try:
+            if ticket.get("status") != 2:
+                log(f"Skipped ticket #{ticket.get('id')}: status is {ticket.get('status')}")
+                continue
+            if ticket.get("source") != EMAIL_SOURCE_ID:
+                log(f"Skipped ticket #{ticket.get('id')}: source is {ticket.get('source')}")
+                continue
             if process_ticket(client, kb_index, state, ticket):
                 replies += 1
         except requests.HTTPError as exc:
@@ -467,6 +488,7 @@ def run_once(client: FreshdeskClient, kb_index: KBIndex, state: dict) -> int:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Hosted SoulShine Freshdesk email KB responder")
     parser.add_argument("command", choices=["once"], help="Run one scan/reply pass")
+    parser.add_argument("--ticket-id", type=int, help="Process a specific Freshdesk ticket id")
     return parser.parse_args()
 
 
@@ -477,7 +499,12 @@ def main() -> int:
     state = load_state()
 
     if args.command == "once":
-        run_once(client, kb_index, state)
+        target_ticket_id = args.ticket_id
+        if target_ticket_id is None:
+            env_ticket_id = os.environ.get("TARGET_TICKET_ID", "").strip()
+            if env_ticket_id:
+                target_ticket_id = int(env_ticket_id)
+        run_once(client, kb_index, state, target_ticket_id=target_ticket_id)
         return 0
 
     return 1
