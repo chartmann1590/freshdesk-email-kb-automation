@@ -2,19 +2,12 @@
   "events": [
     {
       "signals": [
-        "integration-help",
+        "security-compliance",
+        "churn-risk",
         "group:Technical Support"
       ],
-      "ticket_id": 126,
-      "ts": 1776616133.7689188
-    },
-    {
-      "signals": [
-        "integration-help",
-        "group:Technical Support"
-      ],
-      "ticket_id": 127,
-      "ts": 1776616224.1527832
+      "ticket_id": 128,
+      "ts": 1776620152.169391
     }
   ],
   "last_alert": {}
