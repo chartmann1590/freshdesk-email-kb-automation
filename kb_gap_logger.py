@@ -128,9 +128,10 @@ def main() -> int:
     if SKIP_TAGS & tags:
         log(f"ticket #{ticket_id} skipped (tags={sorted(SKIP_TAGS & tags)})")
         return 0
-    if ticket.get("status") not in (4, 5):  # 4=Resolved, 5=Closed
-        log(f"ticket #{ticket_id} not resolved/closed (status={ticket.get('status')}); skipping")
-        return 0
+    # Skip the status re-check: this script is invoked by the Freshdesk
+    # automation rule that fires on transition to status=4 (Resolved). By the
+    # time GitHub Actions runs, other automations (e.g. agent-reply auto-status)
+    # may have flipped the status. Trust the trigger.
 
     conversations = fetch(api_key, domain, f"tickets/{ticket_id}/conversations")
     excerpt = find_resolution_excerpt(conversations)
