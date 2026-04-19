@@ -122,12 +122,15 @@ def count_new_kb_gaps_in_window(window_start: datetime) -> int:
     count = 0
     for line in KB_GAPS_FILE.read_text(encoding="utf-8").splitlines():
         if line.startswith("- Resolved: "):
-            ts = parse_iso(line.split("Resolved: ", 1)[1].strip())
+            raw = line.split("Resolved: ", 1)[1].strip()
+            ts = parse_iso(raw)
             if ts is None:
                 try:
-                    ts = datetime.strptime(line.split("Resolved: ", 1)[1].strip(), "%Y-%m-%d").replace(tzinfo=timezone.utc)
+                    ts = datetime.strptime(raw, "%Y-%m-%d")
                 except ValueError:
                     continue
+            if ts.tzinfo is None:
+                ts = ts.replace(tzinfo=timezone.utc)
             if ts >= window_start:
                 count += 1
     return count
