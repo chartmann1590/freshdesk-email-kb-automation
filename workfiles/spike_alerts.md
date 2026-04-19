@@ -1,3 +1,4 @@
 # Spike Alerts
 
-- 2026-04-19T13:29:01+00:00 | signal=`pastoral-care` | count=2 in 60m | trigger=#125 | window_tickets=[123, 125]
+<!-- Append-only log. Each line: ISO timestamp | signal | count in window | trigger ticket | recent ticket ids. -->
+<!-- Initial entry on 2026-04-19 was an end-to-end verification using synthetic test tickets (#121-#125), since deleted. -->
