@@ -1,0 +1,13 @@
+{
+  "events": [
+    {
+      "signals": [
+        "pastoral-care",
+        "group:Technical Support"
+      ],
+      "ticket_id": 123,
+      "ts": 1776605202.8977234
+    }
+  ],
+  "last_alert": {}
+}
