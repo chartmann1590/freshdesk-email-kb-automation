@@ -1,0 +1,53 @@
+name: Freshdesk KB Gap Logger
+
+on:
+  repository_dispatch:
+    types:
+      - freshdesk_ticket_resolved
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+concurrency:
+  group: freshdesk-kb-gap-logger
+  cancel-in-progress: false
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Log gap and update Freshdesk article
+        env:
+          FRESHDESK_API_KEY: ${{ secrets.FRESHDESK_API_KEY }}
+          FRESHDESK_DOMAIN: soulshineai
+          TARGET_TICKET_ID: ${{ github.event.client_payload.ticket_id }}
+          KB_BACKLOG_ARTICLE_ID: "68000021791"
+        run: python kb_gap_logger.py
+
+      - name: Commit gap log
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          [ -f workfiles/kb_gaps.md ] && git add workfiles/kb_gaps.md
+          git diff --cached --quiet && exit 0
+          git commit -m "Append KB gap entry"
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            git pull --rebase origin main
+          done
+          exit 1
