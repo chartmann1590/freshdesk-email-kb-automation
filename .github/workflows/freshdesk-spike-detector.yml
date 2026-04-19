@@ -1,0 +1,51 @@
+name: Freshdesk Spike Detector
+
+on:
+  repository_dispatch:
+    types:
+      - freshdesk_ticket_created_spike
+  workflow_dispatch:
+    inputs:
+      ticket_id:
+        description: "Freshdesk ticket id to evaluate"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: freshdesk-spike-detector
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Evaluate spike signals
+        env:
+          FRESHDESK_API_KEY: ${{ secrets.FRESHDESK_API_KEY }}
+          FRESHDESK_DOMAIN: soulshineai
+          OPS_WEBHOOK_URL: ${{ secrets.OPS_WEBHOOK_URL }}
+          TARGET_TICKET_ID: ${{ github.event.client_payload.ticket_id || github.event.inputs.ticket_id }}
+        run: python spike_detector.py
+
+      - name: Commit spike state and alerts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workfiles/spike_state.json workfiles/spike_alerts.md 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Update spike state"
+          git push

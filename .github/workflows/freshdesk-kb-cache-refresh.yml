@@ -1,0 +1,48 @@
+name: Freshdesk KB Cache Refresh
+
+on:
+  repository_dispatch:
+    types:
+      - freshdesk_kb_article_published
+  workflow_dispatch:
+  schedule:
+    # Daily safety net so the cache is never older than ~24h.
+    - cron: "0 6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: freshdesk-kb-cache-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Rebuild KB cache from live Freshdesk
+        env:
+          FRESHDESK_API_KEY: ${{ secrets.FRESHDESK_API_KEY }}
+          FRESHDESK_DOMAIN: soulshineai
+        run: python responder.py refresh-kb
+
+      - name: Commit refreshed KB cache
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workfiles/email_ai_responder_kb_cache.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Refresh KB cache"
+          git push

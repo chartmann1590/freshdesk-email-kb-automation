@@ -631,7 +631,7 @@ def run_once(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Hosted SoulShine Freshdesk email KB responder")
-    parser.add_argument("command", choices=["once"], help="Run one scan/reply pass")
+    parser.add_argument("command", choices=["once", "refresh-kb"], help="Run one scan/reply pass, or rebuild KB cache from live Freshdesk")
     parser.add_argument("--ticket-id", type=int, help="Process a specific Freshdesk ticket id")
     return parser.parse_args()
 
@@ -640,8 +640,12 @@ def main() -> int:
     args = parse_args()
     client = FreshdeskClient()
     kb_index = KBIndex(client)
-    state = load_state()
 
+    if args.command == "refresh-kb":
+        kb_index._refresh_live()
+        return 0
+
+    state = load_state()
     if args.command == "once":
         target_ticket_id = args.ticket_id
         if target_ticket_id is None:
