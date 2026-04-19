@@ -44,11 +44,14 @@ WINDOW_SECONDS = 60 * 60
 # Threshold = N tickets sharing the same signal inside WINDOW_SECONDS.
 # Tune these as you learn real volumes; start conservative.
 TAG_THRESHOLDS: Dict[str, int] = {
-    "bug": 5,
+    "platform-support": 5,
     "access-issue": 4,
     "churn-risk": 3,
     "integration-help": 5,
-    "crisis": 2,
+    "pastoral-care": 2,
+    "security-compliance": 2,
+    "account-billing": 6,
+    "soul-24-7": 3,
 }
 
 GROUP_THRESHOLDS: Dict[str, int] = {
