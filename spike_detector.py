@@ -45,13 +45,13 @@ WINDOW_SECONDS = 60 * 60
 # Tune these as you learn real volumes; start conservative.
 TAG_THRESHOLDS: Dict[str, int] = {
     "platform-support": 5,
-    "access-issue": 4,
-    "churn-risk": 3,
+    "access-issue": 5,
+    "churn-risk": 5,
     "integration-help": 5,
-    "pastoral-care": 2,
-    "security-compliance": 2,
-    "account-billing": 6,
-    "soul-24-7": 3,
+    "pastoral-care": 5,
+    "security-compliance": 5,
+    "account-billing": 5,
+    "soul-24-7": 5,
 }
 
 GROUP_THRESHOLDS: Dict[str, int] = {
