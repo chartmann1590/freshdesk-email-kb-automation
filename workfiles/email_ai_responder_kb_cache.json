@@ -466,7 +466,33 @@
       "normalized_title": "setting up 24 7 spiritual support",
       "title": "Setting Up 24/7 Spiritual Support",
       "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000007507"
+    },
+    {
+      "body": "Auto-generated from resolved tickets that did not match an existing KB article. Each entry below is a candidate for a new KB article. Last updated: 2026-04-19 16:33 UTC. KB Authoring Backlog #127 \u2014 E2E gap test: deprecated v1 SOAP endpoint migration timeline Resolved: 2026-04-19 Tags: unrouted, integration-help Group: 68000006460 Resolution excerpt: Hey, Thanks for reaching out. The v1 SOAP endpoint /soap/legacy_dispatch is scheduled for end-of-life on 2026-09-30. Until then it remains in maintenance mode and only receives security patches; no new features are being backported. The recommended migration path is our gRPC dispatch service at dispatch.soulshine.ai:443 with the proto definitions published at https://dispatch.soulshine.ai/proto. Feature parity is guaranteed for all stable v1 methods; three experimental v1 methods (sendEcho, dryRunEnqueue, listLegacyJobs) are not carried forward and have direct equivalents in the new service. R...",
+      "chunks": [
+        "Auto-generated from resolved tickets that did not match an existing KB article. Each entry below is a candidate for a new KB article. Last updated: 2026-04-19 16:33 UTC.",
+        "Last updated: 2026-04-19 16:33 UTC. KB Authoring Backlog #127 \u2014 E2E gap test: deprecated v1 SOAP endpoint migration timeline Resolved: 2026-04-19 Tags: unrouted, integration-help Group: 68000006460 Resolution excerpt: Hey, Thanks for reaching out. The v1 SOAP endpoint /soap/legacy_dispatch is scheduled for end-of-life on 2026-09-30.",
+        "The v1 SOAP endpoint /soap/legacy_dispatch is scheduled for end-of-life on 2026-09-30. Until then it remains in maintenance mode and only receives security patches; no new features are being backported. The recommended migration path is our gRPC dispatch service at dispatch.soulshine.ai:443 with the proto definitions published at https://dispatch.soulshine.ai/proto.",
+        "The recommended migration path is our gRPC dispatch service at dispatch.soulshine.ai:443 with the proto definitions published at https://dispatch.soulshine.ai/proto. Feature parity is guaranteed for all stable v1 methods; three experimental v1 methods (sendEcho, dryRunEnqueue, listLegacyJobs) are not carried forward and have direct equivalents in the new service. R...",
+        "R..."
+      ],
+      "id": 68000021791,
+      "normalized_body": "auto generated from resolved tickets that did not match an existing kb article. each entry below is a candidate for a new kb article. last updated: 2026 04 19 16:33 utc. kb authoring backlog #127 \u2014 e2e gap test: deprecated v1 soap endpoint migration timeline resolved: 2026 04 19 tags: unrouted, integration help group: 68000006460 resolution excerpt: hey, thanks for reaching out. the v1 soap endpoint soap legacy_dispatch is scheduled for end of life on 2026 09 30. until then it remains in maintenance mode and only receives security patches; no new features are being backported. the recommended migration path is our grpc dispatch service at dispatch.soulshine.ai:443 with the proto definitions published at https: dispatch.soulshine.ai proto. feature parity is guaranteed for all stable v1 methods; three experimental v1 methods (sendecho, dryrunenqueue, listlegacyjobs) are not carried forward and have direct equivalents in the new service. r...",
+      "normalized_title": "kb authoring backlog (live)",
+      "title": "KB Authoring Backlog (Live)",
+      "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000021791"
+    },
+    {
+      "body": "Window: 2026-04-12 \u2192 2026-04-19 (UTC). Generated 2026-04-19 16:35 UTC. Summary Total tickets touched in window: 23 Email tickets: 21 KB auto-reply hit rate (email tickets): 62% (13/21) Reopen rate: 0% (0/23) First response: median 0m, p90 17m Resolution: median 4m, p90 1.0h Spike alerts fired this week: 0 New KB gaps logged this week: 1 Volume by Group NameCount Technical Support 14 AI Assistant Support 5 Account & Billing 4 Volume by Source NameCount email 21 15 1 portal 1 Status Mix NameCount Closed 21 Resolved 2 Top 10 Tags NameCount general-inquiry 18 ai-kb-auto-replied 13 unrouted 12 integration-help 6 pastoral-care 4 grace 4 account-billing 4 api-created-test 3 access-issue 3 security-compliance 3",
+      "chunks": [
+        "Window: 2026-04-12 \u2192 2026-04-19 (UTC). Generated 2026-04-19 16:35 UTC. Summary Total tickets touched in window: 23 Email tickets: 21 KB auto-reply hit rate (email tickets): 62% (13/21) Reopen rate: 0% (0/23) First response: median 0m, p90 17m Resolution: median 4m, p90 1.0h Spike alerts fired this week: 0 New KB gaps logged this week: 1 Volume by Group NameCount Technical Support 14 AI Assistant Support 5 Account & Billing 4 Volume by Source NameCount email 21 15 1 portal 1 Status Mix NameCount Closed 21 Resolved 2 Top 10 Tags NameCount general-inquiry 18 ai-kb-auto-replied 13 unrouted 12 integration-help 6 pastoral-care 4 grace 4 account-billing 4 api-created-test 3 access-issue 3 security-compliance 3"
+      ],
+      "id": 68000021792,
+      "normalized_body": "window: 2026 04 12 \u2192 2026 04 19 (utc). generated 2026 04 19 16:35 utc. summary total tickets touched in window: 23 email tickets: 21 kb auto reply hit rate (email tickets): 62% (13 21) reopen rate: 0% (0 23) first response: median 0m, p90 17m resolution: median 4m, p90 1.0h spike alerts fired this week: 0 new kb gaps logged this week: 1 volume by group namecount technical support 14 ai assistant support 5 account and billing 4 volume by source namecount email 21 15 1 portal 1 status mix namecount closed 21 resolved 2 top 10 tags namecount general inquiry 18 ai kb auto replied 13 unrouted 12 integration help 6 pastoral care 4 grace 4 account billing 4 api created test 3 access issue 3 security compliance 3",
+      "normalized_title": "weekly support metrics \u2014 2026 w16",
+      "title": "Weekly Support Metrics \u2014 2026-W16",
+      "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000021792"
     }
   ],
-  "cached_at": 1776604911.9995449
+  "cached_at": 1776628237.9456954
 }
