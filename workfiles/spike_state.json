@@ -7,7 +7,17 @@
       ],
       "ticket_id": 123,
       "ts": 1776605202.8977234
+    },
+    {
+      "signals": [
+        "pastoral-care",
+        "group:Technical Support"
+      ],
+      "ticket_id": 125,
+      "ts": 1776605341.232081
     }
   ],
-  "last_alert": {}
+  "last_alert": {
+    "pastoral-care": 1776605341.232081
+  }
 }
