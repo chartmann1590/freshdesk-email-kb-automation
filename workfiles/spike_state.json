@@ -3,20 +3,10 @@
     {
       "signals": [
         "security-compliance",
-        "churn-risk",
         "group:Technical Support"
       ],
-      "ticket_id": 128,
-      "ts": 1776620152.169391
-    },
-    {
-      "signals": [
-        "integration-help",
-        "pastoral-care",
-        "group:Technical Support"
-      ],
-      "ticket_id": 129,
-      "ts": 1776621690.184803
+      "ticket_id": 130,
+      "ts": 1776808299.8798227
     }
   ],
   "last_alert": {}
