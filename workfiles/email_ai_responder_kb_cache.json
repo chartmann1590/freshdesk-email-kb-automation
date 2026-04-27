@@ -508,7 +508,18 @@
       "normalized_title": "weekly support metrics \u2014 2026 w17",
       "title": "Weekly Support Metrics \u2014 2026-W17",
       "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000021842"
+    },
+    {
+      "body": "Window: 2026-04-20 \u2192 2026-04-27 (UTC). Generated 2026-04-27 11:08 UTC. Summary Total tickets touched in window: 4 Email tickets: 4 KB auto-reply hit rate (email tickets): 50% (2/4) Reopen rate: 0% (0/4) First response: median 0m, p90 1m Resolution: median 3m, p90 4.5h Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Technical Support 4 Volume by Source NameCount email 4 Status Mix NameCount Closed 3 Open 1 Top 10 Tags NameCount unrouted 3 ai-kb-auto-replied 2 integration-help 2 security-compliance 1 setup-onboarding 1 general-inquiry 1",
+      "chunks": [
+        "Window: 2026-04-20 \u2192 2026-04-27 (UTC). Generated 2026-04-27 11:08 UTC. Summary Total tickets touched in window: 4 Email tickets: 4 KB auto-reply hit rate (email tickets): 50% (2/4) Reopen rate: 0% (0/4) First response: median 0m, p90 1m Resolution: median 3m, p90 4.5h Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Technical Support 4 Volume by Source NameCount email 4 Status Mix NameCount Closed 3 Open 1 Top 10 Tags NameCount unrouted 3 ai-kb-auto-replied 2 integration-help 2 security-compliance 1 setup-onboarding 1 general-inquiry 1"
+      ],
+      "id": 68000022716,
+      "normalized_body": "window: 2026 04 20 \u2192 2026 04 27 (utc). generated 2026 04 27 11:08 utc. summary total tickets touched in window: 4 email tickets: 4 kb auto reply hit rate (email tickets): 50% (2 4) reopen rate: 0% (0 4) first response: median 0m, p90 1m resolution: median 3m, p90 4.5h spike alerts fired this week: 0 new kb gaps logged this week: 0 volume by group namecount technical support 4 volume by source namecount email 4 status mix namecount closed 3 open 1 top 10 tags namecount unrouted 3 ai kb auto replied 2 integration help 2 security compliance 1 setup onboarding 1 general inquiry 1",
+      "normalized_title": "weekly support metrics \u2014 2026 w18",
+      "title": "Weekly Support Metrics \u2014 2026-W18",
+      "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000022716"
     }
   ],
-  "cached_at": 1777277430.6916611
+  "cached_at": 1777302998.2664254
 }
