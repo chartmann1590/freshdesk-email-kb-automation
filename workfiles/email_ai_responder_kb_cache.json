@@ -525,7 +525,18 @@
       "normalized_title": "weekly support metrics \u2014 2026 w18",
       "title": "Weekly Support Metrics \u2014 2026-W18",
       "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000022716"
+    },
+    {
+      "body": "Window: 2026-04-27 \u2192 2026-05-04 (UTC). Generated 2026-05-04 11:08 UTC. Summary Total tickets touched in window: 1 Email tickets: 1 KB auto-reply hit rate (email tickets): 0% (0/1) Reopen rate: 0% (0/1) First response: median \u2014, p90 \u2014 Resolution: median 6.9d, p90 6.9d Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Technical Support 1 Volume by Source NameCount email 1 Status Mix NameCount Closed 1 Top 10 Tags NameCount unrouted 1",
+      "chunks": [
+        "Window: 2026-04-27 \u2192 2026-05-04 (UTC). Generated 2026-05-04 11:08 UTC. Summary Total tickets touched in window: 1 Email tickets: 1 KB auto-reply hit rate (email tickets): 0% (0/1) Reopen rate: 0% (0/1) First response: median \u2014, p90 \u2014 Resolution: median 6.9d, p90 6.9d Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Technical Support 1 Volume by Source NameCount email 1 Status Mix NameCount Closed 1 Top 10 Tags NameCount unrouted 1"
+      ],
+      "id": 68000023345,
+      "normalized_body": "window: 2026 04 27 \u2192 2026 05 04 (utc). generated 2026 05 04 11:08 utc. summary total tickets touched in window: 1 email tickets: 1 kb auto reply hit rate (email tickets): 0% (0 1) reopen rate: 0% (0 1) first response: median \u2014, p90 \u2014 resolution: median 6.9d, p90 6.9d spike alerts fired this week: 0 new kb gaps logged this week: 0 volume by group namecount technical support 1 volume by source namecount email 1 status mix namecount closed 1 top 10 tags namecount unrouted 1",
+      "normalized_title": "weekly support metrics \u2014 2026 w19",
+      "title": "Weekly Support Metrics \u2014 2026-W19",
+      "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000023345"
     }
   ],
-  "cached_at": 1777882906.0775557
+  "cached_at": 1777911257.3649178
 }
