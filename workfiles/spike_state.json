@@ -2,12 +2,11 @@
   "events": [
     {
       "signals": [
-        "integration-help",
-        "platform-support",
-        "group:Technical Support"
+        "churn-risk",
+        "group:AI Assistant Support"
       ],
-      "ticket_id": 134,
-      "ts": 1777994839.0860393
+      "ticket_id": 135,
+      "ts": 1778001554.6478934
     }
   ],
   "last_alert": {}
