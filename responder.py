@@ -589,6 +589,18 @@ def process_ticket(client: FreshdeskClient, kb_index: KBIndex, state: dict, tick
     add_processed_tag(client, ticket)
     top_title = matches[0][1]["title"] if matches else "unknown"
     log(f"Replied to ticket #{ticket_id} using KB article '{top_title}' (reply id {reply.get('id')})")
+
+    note_body = (
+        f"<p><strong>AI KB auto-reply sent (matched: {html.escape(top_title)})</strong></p>"
+        f"<hr/>{body}"
+    )
+    try:
+        client.post(f"tickets/{ticket_id}/notes", {"body": note_body, "private": True})
+        log(f"Posted internal note copy on ticket #{ticket_id}")
+    except requests.HTTPError as exc:
+        status = exc.response.status_code if exc.response is not None else "unknown"
+        log(f"Internal note failed on ticket #{ticket_id}: {status}")
+
     mark_ticket_processed(state, ticket_id, f"replied:{top_title}")
     return True
 
