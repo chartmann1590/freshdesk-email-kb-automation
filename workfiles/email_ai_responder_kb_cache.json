@@ -550,7 +550,18 @@
       "normalized_title": "weekly support metrics \u2014 2026 w19",
       "title": "Weekly Support Metrics \u2014 2026-W19",
       "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000023345"
+    },
+    {
+      "body": "Window: 2026-05-04 \u2192 2026-05-11 (UTC). Generated 2026-05-11 12:14 UTC. Summary Total tickets touched in window: 2 Email tickets: 0 KB auto-reply hit rate (email tickets): 0% (0/0) Reopen rate: 0% (0/2) First response: median 2.6h, p90 4.3h Resolution: median 8.4h, p90 8.4h Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount AI Assistant Support 2 Volume by Source NameCount portal 2 Status Mix NameCount Closed 1 Waiting on Customer 1 Top 10 Tags NameCount grace 2 setup-onboarding 2 general-inquiry 1 platform-support 1 feedback 1",
+      "chunks": [
+        "Window: 2026-05-04 \u2192 2026-05-11 (UTC). Generated 2026-05-11 12:14 UTC. Summary Total tickets touched in window: 2 Email tickets: 0 KB auto-reply hit rate (email tickets): 0% (0/0) Reopen rate: 0% (0/2) First response: median 2.6h, p90 4.3h Resolution: median 8.4h, p90 8.4h Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount AI Assistant Support 2 Volume by Source NameCount portal 2 Status Mix NameCount Closed 1 Waiting on Customer 1 Top 10 Tags NameCount grace 2 setup-onboarding 2 general-inquiry 1 platform-support 1 feedback 1"
+      ],
+      "id": 68000024027,
+      "normalized_body": "window: 2026 05 04 \u2192 2026 05 11 (utc). generated 2026 05 11 12:14 utc. summary total tickets touched in window: 2 email tickets: 0 kb auto reply hit rate (email tickets): 0% (0 0) reopen rate: 0% (0 2) first response: median 2.6h, p90 4.3h resolution: median 8.4h, p90 8.4h spike alerts fired this week: 0 new kb gaps logged this week: 0 volume by group namecount ai assistant support 2 volume by source namecount portal 2 status mix namecount closed 1 waiting on customer 1 top 10 tags namecount grace 2 setup onboarding 2 general inquiry 1 platform support 1 feedback 1",
+      "normalized_title": "weekly support metrics \u2014 2026 w20",
+      "title": "Weekly Support Metrics \u2014 2026-W20",
+      "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000024027"
     }
   ],
-  "cached_at": 1778491746.9683716
+  "cached_at": 1778517472.4050012
 }
