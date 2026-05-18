@@ -561,7 +561,18 @@
       "normalized_title": "weekly support metrics \u2014 2026 w20",
       "title": "Weekly Support Metrics \u2014 2026-W20",
       "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000024027"
+    },
+    {
+      "body": "Window: 2026-05-11 \u2192 2026-05-18 (UTC). Generated 2026-05-18 12:36 UTC. Summary Total tickets touched in window: 2 Email tickets: 1 KB auto-reply hit rate (email tickets): 100% (1/1) Reopen rate: 0% (0/2) First response: median 10m, p90 17m Resolution: median \u2014, p90 \u2014 Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Technical Support 1 AI Assistant Support 1 Volume by Source NameCount email 1 portal 1 Status Mix NameCount Waiting on Customer 2 Top 10 Tags NameCount security-compliance 1 ai-kb-auto-replied 1 setup-onboarding 1 grace 1 platform-support 1 feedback 1",
+      "chunks": [
+        "Window: 2026-05-11 \u2192 2026-05-18 (UTC). Generated 2026-05-18 12:36 UTC. Summary Total tickets touched in window: 2 Email tickets: 1 KB auto-reply hit rate (email tickets): 100% (1/1) Reopen rate: 0% (0/2) First response: median 10m, p90 17m Resolution: median \u2014, p90 \u2014 Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Technical Support 1 AI Assistant Support 1 Volume by Source NameCount email 1 portal 1 Status Mix NameCount Waiting on Customer 2 Top 10 Tags NameCount security-compliance 1 ai-kb-auto-replied 1 setup-onboarding 1 grace 1 platform-support 1 feedback 1"
+      ],
+      "id": 68000024797,
+      "normalized_body": "window: 2026 05 11 \u2192 2026 05 18 (utc). generated 2026 05 18 12:36 utc. summary total tickets touched in window: 2 email tickets: 1 kb auto reply hit rate (email tickets): 100% (1 1) reopen rate: 0% (0 2) first response: median 10m, p90 17m resolution: median \u2014, p90 \u2014 spike alerts fired this week: 0 new kb gaps logged this week: 0 volume by group namecount technical support 1 ai assistant support 1 volume by source namecount email 1 portal 1 status mix namecount waiting on customer 2 top 10 tags namecount security compliance 1 ai kb auto replied 1 setup onboarding 1 grace 1 platform support 1 feedback 1",
+      "normalized_title": "weekly support metrics \u2014 2026 w21",
+      "title": "Weekly Support Metrics \u2014 2026-W21",
+      "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000024797"
     }
   ],
-  "cached_at": 1779097545.8009782
+  "cached_at": 1779120819.2921016
 }
