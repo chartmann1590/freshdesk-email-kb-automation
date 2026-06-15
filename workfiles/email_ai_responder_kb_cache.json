@@ -616,7 +616,18 @@
       "normalized_title": "weekly support metrics \u2014 2026 w24",
       "title": "Weekly Support Metrics \u2014 2026-W24",
       "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000026521"
+    },
+    {
+      "body": "Window: 2026-06-08 \u2192 2026-06-15 (UTC). Generated 2026-06-15 15:18 UTC. Summary Total tickets touched in window: 0 Email tickets: 0 KB auto-reply hit rate (email tickets): 0% (0/0) Reopen rate: 0% (0/0) First response: median \u2014, p90 \u2014 Resolution: median \u2014, p90 \u2014 Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Volume by Source NameCount Status Mix NameCount Top 10 Tags NameCount",
+      "chunks": [
+        "Window: 2026-06-08 \u2192 2026-06-15 (UTC). Generated 2026-06-15 15:18 UTC. Summary Total tickets touched in window: 0 Email tickets: 0 KB auto-reply hit rate (email tickets): 0% (0/0) Reopen rate: 0% (0/0) First response: median \u2014, p90 \u2014 Resolution: median \u2014, p90 \u2014 Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Volume by Source NameCount Status Mix NameCount Top 10 Tags NameCount"
+      ],
+      "id": 68000027207,
+      "normalized_body": "window: 2026 06 08 \u2192 2026 06 15 (utc). generated 2026 06 15 15:18 utc. summary total tickets touched in window: 0 email tickets: 0 kb auto reply hit rate (email tickets): 0% (0 0) reopen rate: 0% (0 0) first response: median \u2014, p90 \u2014 resolution: median \u2014, p90 \u2014 spike alerts fired this week: 0 new kb gaps logged this week: 0 volume by group namecount volume by source namecount status mix namecount top 10 tags namecount",
+      "normalized_title": "weekly support metrics \u2014 2026 w25",
+      "title": "Weekly Support Metrics \u2014 2026-W25",
+      "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000027207"
     }
   ],
-  "cached_at": 1781524245.6928294
+  "cached_at": 1781546799.2805133
 }
