@@ -8,19 +8,16 @@
         "pastoral-care",
         "group:AI Assistant Support"
       ],
-      "ticket_id": 139,
-      "ts": 1786020549.9656434
+      "ticket_id": 140,
+      "ts": 1786021764.5576835
     },
     {
       "signals": [
         "security-compliance",
-        "access-issue",
-        "account-billing",
-        "pastoral-care",
-        "group:AI Assistant Support"
+        "group:Technical Support"
       ],
-      "ticket_id": 140,
-      "ts": 1786021764.5576835
+      "ticket_id": 141,
+      "ts": 1786024898.398938
     }
   ],
   "last_alert": {}
