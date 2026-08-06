@@ -2,13 +2,14 @@
   "events": [
     {
       "signals": [
-        "integration-help",
-        "platform-support",
-        "churn-risk",
-        "group:Technical Support"
+        "security-compliance",
+        "access-issue",
+        "account-billing",
+        "pastoral-care",
+        "group:AI Assistant Support"
       ],
-      "ticket_id": 138,
-      "ts": 1779213716.9341338
+      "ticket_id": 139,
+      "ts": 1786020549.9656434
     }
   ],
   "last_alert": {}
