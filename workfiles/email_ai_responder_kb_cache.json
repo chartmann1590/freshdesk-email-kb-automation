@@ -704,7 +704,18 @@
       "normalized_title": "weekly support metrics \u2014 2026 w32",
       "title": "Weekly Support Metrics \u2014 2026-W32",
       "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000033305"
+    },
+    {
+      "body": "Window: 2026-08-03 \u2192 2026-08-10 (UTC). Generated 2026-08-10 10:19 UTC. Summary Total tickets touched in window: 3 Email tickets: 3 KB auto-reply hit rate (email tickets): 33% (1/3) Reopen rate: 0% (0/3) First response: median 1m, p90 1m Resolution: median 0m, p90 0m Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount AI Assistant Support 2 Technical Support 1 Volume by Source NameCount email 3 Status Mix NameCount Closed 2 Waiting on Customer 1 Top 10 Tags NameCount security-compliance 3 spam 2 access-issue 2 grace 2 account-billing 2 general-inquiry 2 pastoral-care 2 ai-kb-auto-replied 1",
+      "chunks": [
+        "Window: 2026-08-03 \u2192 2026-08-10 (UTC). Generated 2026-08-10 10:19 UTC. Summary Total tickets touched in window: 3 Email tickets: 3 KB auto-reply hit rate (email tickets): 33% (1/3) Reopen rate: 0% (0/3) First response: median 1m, p90 1m Resolution: median 0m, p90 0m Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount AI Assistant Support 2 Technical Support 1 Volume by Source NameCount email 3 Status Mix NameCount Closed 2 Waiting on Customer 1 Top 10 Tags NameCount security-compliance 3 spam 2 access-issue 2 grace 2 account-billing 2 general-inquiry 2 pastoral-care 2 ai-kb-auto-replied 1"
+      ],
+      "id": 68000033760,
+      "normalized_body": "window: 2026 08 03 \u2192 2026 08 10 (utc). generated 2026 08 10 10:19 utc. summary total tickets touched in window: 3 email tickets: 3 kb auto reply hit rate (email tickets): 33% (1 3) reopen rate: 0% (0 3) first response: median 1m, p90 1m resolution: median 0m, p90 0m spike alerts fired this week: 0 new kb gaps logged this week: 0 volume by group namecount ai assistant support 2 technical support 1 volume by source namecount email 3 status mix namecount closed 2 waiting on customer 1 top 10 tags namecount security compliance 3 spam 2 access issue 2 grace 2 account billing 2 general inquiry 2 pastoral care 2 ai kb auto replied 1",
+      "normalized_title": "weekly support metrics \u2014 2026 w33",
+      "title": "Weekly Support Metrics \u2014 2026-W33",
+      "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000033760"
     }
   ],
-  "cached_at": 1786346154.304399
+  "cached_at": 1786370026.261999
 }
