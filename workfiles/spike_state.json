@@ -3,10 +3,12 @@
     {
       "signals": [
         "churn-risk",
-        "group:Technical Support"
+        "integration-help",
+        "platform-support",
+        "group:AI Assistant Support"
       ],
-      "ticket_id": 143,
-      "ts": 1786466237.919226
+      "ticket_id": 144,
+      "ts": 1786471053.0549943
     }
   ],
   "last_alert": {}
