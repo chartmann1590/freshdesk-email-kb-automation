@@ -18,6 +18,17 @@
       ],
       "ticket_id": 145,
       "ts": 1786472805.5875273
+    },
+    {
+      "signals": [
+        "integration-help",
+        "churn-risk",
+        "platform-support",
+        "pastoral-care",
+        "group:AI Assistant Support"
+      ],
+      "ticket_id": 146,
+      "ts": 1786474644.3042507
     }
   ],
   "last_alert": {}
