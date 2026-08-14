@@ -2,12 +2,10 @@
   "events": [
     {
       "signals": [
-        "churn-risk",
-        "pastoral-care",
-        "group:AI Assistant Support"
+        "group:Technical Support"
       ],
-      "ticket_id": 147,
-      "ts": 1786639926.4645178
+      "ticket_id": 148,
+      "ts": 1786723662.0446756
     }
   ],
   "last_alert": {}
