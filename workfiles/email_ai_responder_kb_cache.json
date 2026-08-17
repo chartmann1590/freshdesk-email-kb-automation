@@ -715,7 +715,18 @@
       "normalized_title": "weekly support metrics \u2014 2026 w33",
       "title": "Weekly Support Metrics \u2014 2026-W33",
       "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000033760"
+    },
+    {
+      "body": "Window: 2026-08-10 \u2192 2026-08-17 (UTC). Generated 2026-08-17 09:45 UTC. Summary Total tickets touched in window: 10 Email tickets: 9 KB auto-reply hit rate (email tickets): 56% (5/9) Reopen rate: 0% (0/10) First response: median 0m, p90 3m Resolution: median 1.9h, p90 1.2d Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Technical Support 5 AI Assistant Support 4 Account & Billing 1 Volume by Source NameCount email 9 portal 1 Status Mix NameCount Closed 9 Open 1 Top 10 Tags NameCount ai-kb-auto-replied 5 churn-risk 5 integration-help 4 platform-support 4 grace 4 unrouted 3 pastoral-care 2 spam 2 setup-onboarding 2 training-docs 2",
+      "chunks": [
+        "Window: 2026-08-10 \u2192 2026-08-17 (UTC). Generated 2026-08-17 09:45 UTC. Summary Total tickets touched in window: 10 Email tickets: 9 KB auto-reply hit rate (email tickets): 56% (5/9) Reopen rate: 0% (0/10) First response: median 0m, p90 3m Resolution: median 1.9h, p90 1.2d Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Technical Support 5 AI Assistant Support 4 Account & Billing 1 Volume by Source NameCount email 9 portal 1 Status Mix NameCount Closed 9 Open 1 Top 10 Tags NameCount ai-kb-auto-replied 5 churn-risk 5 integration-help 4 platform-support 4 grace 4 unrouted 3 pastoral-care 2 spam 2 setup-onboarding 2 training-docs 2"
+      ],
+      "id": 68000034067,
+      "normalized_body": "window: 2026 08 10 \u2192 2026 08 17 (utc). generated 2026 08 17 09:45 utc. summary total tickets touched in window: 10 email tickets: 9 kb auto reply hit rate (email tickets): 56% (5 9) reopen rate: 0% (0 10) first response: median 0m, p90 3m resolution: median 1.9h, p90 1.2d spike alerts fired this week: 0 new kb gaps logged this week: 0 volume by group namecount technical support 5 ai assistant support 4 account and billing 1 volume by source namecount email 9 portal 1 status mix namecount closed 9 open 1 top 10 tags namecount ai kb auto replied 5 churn risk 5 integration help 4 platform support 4 grace 4 unrouted 3 pastoral care 2 spam 2 setup onboarding 2 training docs 2",
+      "normalized_title": "weekly support metrics \u2014 2026 w34",
+      "title": "Weekly Support Metrics \u2014 2026-W34",
+      "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000034067"
     }
   ],
-  "cached_at": 1786948678.3519032
+  "cached_at": 1786972972.2542434
 }
