@@ -4,15 +4,8 @@
       "signals": [
         "group:Technical Support"
       ],
-      "ticket_id": 152,
-      "ts": 1786987909.9605653
-    },
-    {
-      "signals": [
-        "group:Technical Support"
-      ],
-      "ticket_id": 153,
-      "ts": 1786988916.3925765
+      "ticket_id": 154,
+      "ts": 1787075515.1946366
     }
   ],
   "last_alert": {}
