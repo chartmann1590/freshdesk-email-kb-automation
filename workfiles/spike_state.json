@@ -2,10 +2,11 @@
   "events": [
     {
       "signals": [
+        "integration-help",
         "group:Technical Support"
       ],
-      "ticket_id": 155,
-      "ts": 1787085194.7422206
+      "ticket_id": 156,
+      "ts": 1787249499.5073748
     }
   ],
   "last_alert": {}
