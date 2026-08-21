@@ -3,10 +3,11 @@
     {
       "signals": [
         "integration-help",
+        "platform-support",
         "group:Technical Support"
       ],
-      "ticket_id": 156,
-      "ts": 1787249499.5073748
+      "ticket_id": 157,
+      "ts": 1787336666.0637977
     }
   ],
   "last_alert": {}
