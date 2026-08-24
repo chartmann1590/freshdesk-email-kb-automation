@@ -726,7 +726,18 @@
       "normalized_title": "weekly support metrics \u2014 2026 w34",
       "title": "Weekly Support Metrics \u2014 2026-W34",
       "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000034067"
+    },
+    {
+      "body": "Window: 2026-08-17 \u2192 2026-08-24 (UTC). Generated 2026-08-24 09:51 UTC. Summary Total tickets touched in window: 6 Email tickets: 6 KB auto-reply hit rate (email tickets): 17% (1/6) Reopen rate: 0% (0/6) First response: median 0m, p90 0m Resolution: median 1m, p90 4m Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Technical Support 6 Volume by Source NameCount email 6 Status Mix NameCount Closed 3 Open 2 Waiting on Customer 1 Top 10 Tags NameCount unrouted 5 integration-help 2 platform-support 1 spam 1 setup-onboarding 1 ai-kb-auto-replied 1",
+      "chunks": [
+        "Window: 2026-08-17 \u2192 2026-08-24 (UTC). Generated 2026-08-24 09:51 UTC. Summary Total tickets touched in window: 6 Email tickets: 6 KB auto-reply hit rate (email tickets): 17% (1/6) Reopen rate: 0% (0/6) First response: median 0m, p90 0m Resolution: median 1m, p90 4m Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Technical Support 6 Volume by Source NameCount email 6 Status Mix NameCount Closed 3 Open 2 Waiting on Customer 1 Top 10 Tags NameCount unrouted 5 integration-help 2 platform-support 1 spam 1 setup-onboarding 1 ai-kb-auto-replied 1"
+      ],
+      "id": 68000034840,
+      "normalized_body": "window: 2026 08 17 \u2192 2026 08 24 (utc). generated 2026 08 24 09:51 utc. summary total tickets touched in window: 6 email tickets: 6 kb auto reply hit rate (email tickets): 17% (1 6) reopen rate: 0% (0 6) first response: median 0m, p90 0m resolution: median 1m, p90 4m spike alerts fired this week: 0 new kb gaps logged this week: 0 volume by group namecount technical support 6 volume by source namecount email 6 status mix namecount closed 3 open 2 waiting on customer 1 top 10 tags namecount unrouted 5 integration help 2 platform support 1 spam 1 setup onboarding 1 ai kb auto replied 1",
+      "normalized_title": "weekly support metrics \u2014 2026 w35",
+      "title": "Weekly Support Metrics \u2014 2026-W35",
+      "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000034840"
     }
   ],
-  "cached_at": 1787553654.6850355
+  "cached_at": 1787576904.515064
 }
