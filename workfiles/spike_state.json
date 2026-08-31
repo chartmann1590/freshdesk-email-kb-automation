@@ -2,20 +2,10 @@
   "events": [
     {
       "signals": [
-        "account-billing",
-        "access-issue",
-        "group:Account & Billing"
-      ],
-      "ticket_id": 169,
-      "ts": 1788185778.2496166
-    },
-    {
-      "signals": [
-        "churn-risk",
         "group:Technical Support"
       ],
-      "ticket_id": 170,
-      "ts": 1788187409.2044318
+      "ticket_id": 171,
+      "ts": 1788212645.8876643
     }
   ],
   "last_alert": {}
