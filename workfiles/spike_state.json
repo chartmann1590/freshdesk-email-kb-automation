@@ -2,10 +2,12 @@
   "events": [
     {
       "signals": [
-        "group:Technical Support"
+        "account-billing",
+        "access-issue",
+        "group:Account & Billing"
       ],
-      "ticket_id": 168,
-      "ts": 1787856808.3271947
+      "ticket_id": 169,
+      "ts": 1788185778.2496166
     }
   ],
   "last_alert": {}
