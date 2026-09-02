@@ -7,6 +7,14 @@
       ],
       "ticket_id": 173,
       "ts": 1788388897.1072476
+    },
+    {
+      "signals": [
+        "account-billing",
+        "group:Account & Billing"
+      ],
+      "ticket_id": 174,
+      "ts": 1788389147.7247472
     }
   ],
   "last_alert": {}
