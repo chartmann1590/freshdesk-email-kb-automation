@@ -748,7 +748,18 @@
       "normalized_title": "weekly support metrics \u2014 2026 w36",
       "title": "Weekly Support Metrics \u2014 2026-W36",
       "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000035252"
+    },
+    {
+      "body": "Window: 2026-08-31 \u2192 2026-09-07 (UTC). Generated 2026-09-07 14:54 UTC. Summary Total tickets touched in window: 10 Email tickets: 10 KB auto-reply hit rate (email tickets): 50% (5/10) Reopen rate: 0% (0/10) First response: median 0m, p90 58m Resolution: median 11m, p90 14.1h Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Technical Support 7 Account & Billing 3 Volume by Source NameCount email 10 Status Mix NameCount Closed 7 Waiting on Customer 2 Open 1 Top 10 Tags NameCount unrouted 5 ai-kb-auto-replied 5 account-billing 3 refund 3 security-compliance 2 spam 2 churn-risk 2 setup-onboarding 1 feature-request 1 integration-help 1",
+      "chunks": [
+        "Window: 2026-08-31 \u2192 2026-09-07 (UTC). Generated 2026-09-07 14:54 UTC. Summary Total tickets touched in window: 10 Email tickets: 10 KB auto-reply hit rate (email tickets): 50% (5/10) Reopen rate: 0% (0/10) First response: median 0m, p90 58m Resolution: median 11m, p90 14.1h Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Technical Support 7 Account & Billing 3 Volume by Source NameCount email 10 Status Mix NameCount Closed 7 Waiting on Customer 2 Open 1 Top 10 Tags NameCount unrouted 5 ai-kb-auto-replied 5 account-billing 3 refund 3 security-compliance 2 spam 2 churn-risk 2 setup-onboarding 1 feature-request 1 integration-help 1"
+      ],
+      "id": 68000035912,
+      "normalized_body": "window: 2026 08 31 \u2192 2026 09 07 (utc). generated 2026 09 07 14:54 utc. summary total tickets touched in window: 10 email tickets: 10 kb auto reply hit rate (email tickets): 50% (5 10) reopen rate: 0% (0 10) first response: median 0m, p90 58m resolution: median 11m, p90 14.1h spike alerts fired this week: 0 new kb gaps logged this week: 0 volume by group namecount technical support 7 account and billing 3 volume by source namecount email 10 status mix namecount closed 7 waiting on customer 2 open 1 top 10 tags namecount unrouted 5 ai kb auto replied 5 account billing 3 refund 3 security compliance 2 spam 2 churn risk 2 setup onboarding 1 feature request 1 integration help 1",
+      "normalized_title": "weekly support metrics \u2014 2026 w37",
+      "title": "Weekly Support Metrics \u2014 2026-W37",
+      "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000035912"
     }
   ],
-  "cached_at": 1788779595.0647016
+  "cached_at": 1788806947.477154
 }
