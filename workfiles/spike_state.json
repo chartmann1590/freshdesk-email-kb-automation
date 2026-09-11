@@ -2,10 +2,11 @@
   "events": [
     {
       "signals": [
+        "churn-risk",
         "group:Technical Support"
       ],
-      "ticket_id": 180,
-      "ts": 1788997375.0652618
+      "ticket_id": 181,
+      "ts": 1789138895.946029
     }
   ],
   "last_alert": {}
