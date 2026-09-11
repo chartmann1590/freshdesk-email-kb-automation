@@ -7,6 +7,14 @@
       ],
       "ticket_id": 181,
       "ts": 1789138895.946029
+    },
+    {
+      "signals": [
+        "churn-risk",
+        "group:Technical Support"
+      ],
+      "ticket_id": 182,
+      "ts": 1789139016.7933645
     }
   ],
   "last_alert": {}
