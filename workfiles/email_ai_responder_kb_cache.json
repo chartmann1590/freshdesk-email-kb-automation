@@ -781,7 +781,18 @@
       "normalized_title": "weekly support metrics \u2014 2026 w39",
       "title": "Weekly Support Metrics \u2014 2026-W39",
       "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000037045"
+    },
+    {
+      "body": "Window: 2026-09-21 \u2192 2026-09-28 (UTC). Generated 2026-09-28 17:28 UTC. Summary Total tickets touched in window: 1 Email tickets: 1 KB auto-reply hit rate (email tickets): 100% (1/1) Reopen rate: 0% (0/1) First response: median 0m, p90 0m Resolution: median 29m, p90 29m Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Account & Billing 1 Volume by Source NameCount email 1 Status Mix NameCount Closed 1 Top 10 Tags NameCount account-billing 1 refund 1 churn-risk 1 feedback 1 ai-kb-auto-replied 1",
+      "chunks": [
+        "Window: 2026-09-21 \u2192 2026-09-28 (UTC). Generated 2026-09-28 17:28 UTC. Summary Total tickets touched in window: 1 Email tickets: 1 KB auto-reply hit rate (email tickets): 100% (1/1) Reopen rate: 0% (0/1) First response: median 0m, p90 0m Resolution: median 29m, p90 29m Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Account & Billing 1 Volume by Source NameCount email 1 Status Mix NameCount Closed 1 Top 10 Tags NameCount account-billing 1 refund 1 churn-risk 1 feedback 1 ai-kb-auto-replied 1"
+      ],
+      "id": 68000037478,
+      "normalized_body": "window: 2026 09 21 \u2192 2026 09 28 (utc). generated 2026 09 28 17:28 utc. summary total tickets touched in window: 1 email tickets: 1 kb auto reply hit rate (email tickets): 100% (1 1) reopen rate: 0% (0 1) first response: median 0m, p90 0m resolution: median 29m, p90 29m spike alerts fired this week: 0 new kb gaps logged this week: 0 volume by group namecount account and billing 1 volume by source namecount email 1 status mix namecount closed 1 top 10 tags namecount account billing 1 refund 1 churn risk 1 feedback 1 ai kb auto replied 1",
+      "normalized_title": "weekly support metrics \u2014 2026 w40",
+      "title": "Weekly Support Metrics \u2014 2026-W40",
+      "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000037478"
     }
   ],
-  "cached_at": 1790599448.889411
+  "cached_at": 1790630201.3953733
 }
