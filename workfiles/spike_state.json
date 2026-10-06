@@ -2,12 +2,11 @@
   "events": [
     {
       "signals": [
-        "account-billing",
-        "churn-risk",
-        "group:Account & Billing"
+        "integration-help",
+        "group:Technical Support"
       ],
-      "ticket_id": 198,
-      "ts": 1790188760.4196362
+      "ticket_id": 207,
+      "ts": 1791300699.286946
     }
   ],
   "last_alert": {}
