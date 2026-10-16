@@ -49,8 +49,8 @@ jobs:
           git add workfiles/email_ai_responder_state.json workfiles/email_ai_responder_kb_cache.json
           git diff --cached --quiet && exit 0
           git commit -m "Update responder state"
-          for i i n 1 2 3 4 5; do
-            git push & exit 0
+          for i in 1 2 3 4 5; do
+            git push && exit 0
             git pull --rebase origin main
           done
           exit 1
