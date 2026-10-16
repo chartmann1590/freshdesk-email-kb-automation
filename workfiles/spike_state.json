@@ -2,11 +2,11 @@
   "events": [
     {
       "signals": [
-        "pastoral-care",
+        "integration-help",
         "group:Technical Support"
       ],
-      "ticket_id": 210,
-      "ts": 1792179808.6077504
+      "ticket_id": 212,
+      "ts": 1792186428.7139542
     }
   ],
   "last_alert": {}
