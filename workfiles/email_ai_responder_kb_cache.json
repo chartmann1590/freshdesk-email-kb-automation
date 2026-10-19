@@ -814,7 +814,18 @@
       "normalized_title": "weekly support metrics \u2014 2026 w42",
       "title": "Weekly Support Metrics \u2014 2026-W42",
       "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000038807"
+    },
+    {
+      "body": "Window: 2026-10-12 \u2192 2026-10-19 (UTC). Generated 2026-10-19 16:18 UTC. Summary Total tickets touched in window: 1 Email tickets: 1 KB auto-reply hit rate (email tickets): 0% (0/1) Reopen rate: 0% (0/1) First response: median \u2014, p90 \u2014 Resolution: median \u2014, p90 \u2014 Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Technical Support 1 Volume by Source NameCount email 1 Status Mix NameCount Open 1 Top 10 Tags NameCount unrouted 1 pastoral-care 1",
+      "chunks": [
+        "Window: 2026-10-12 \u2192 2026-10-19 (UTC). Generated 2026-10-19 16:18 UTC. Summary Total tickets touched in window: 1 Email tickets: 1 KB auto-reply hit rate (email tickets): 0% (0/1) Reopen rate: 0% (0/1) First response: median \u2014, p90 \u2014 Resolution: median \u2014, p90 \u2014 Spike alerts fired this week: 0 New KB gaps logged this week: 0 Volume by Group NameCount Technical Support 1 Volume by Source NameCount email 1 Status Mix NameCount Open 1 Top 10 Tags NameCount unrouted 1 pastoral-care 1"
+      ],
+      "id": 68000039486,
+      "normalized_body": "window: 2026 10 12 \u2192 2026 10 19 (utc). generated 2026 10 19 16:18 utc. summary total tickets touched in window: 1 email tickets: 1 kb auto reply hit rate (email tickets): 0% (0 1) reopen rate: 0% (0 1) first response: median \u2014, p90 \u2014 resolution: median \u2014, p90 \u2014 spike alerts fired this week: 0 new kb gaps logged this week: 0 volume by group namecount technical support 1 volume by source namecount email 1 status mix namecount open 1 top 10 tags namecount unrouted 1 pastoral care 1",
+      "normalized_title": "weekly support metrics \u2014 2026 w43",
+      "title": "Weekly Support Metrics \u2014 2026-W43",
+      "url": "https://soulshineai.freshdesk.com/support/solutions/articles/68000039486"
     }
   ],
-  "cached_at": 1792410253.6568544
+  "cached_at": 1792438368.286144
 }
