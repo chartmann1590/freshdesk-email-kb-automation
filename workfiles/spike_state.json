@@ -6,6 +6,13 @@
       ],
       "ticket_id": 215,
       "ts": 1792553623.2229848
+    },
+    {
+      "signals": [
+        "group:Technical Support"
+      ],
+      "ticket_id": 216,
+      "ts": 1792554236.982654
     }
   ],
   "last_alert": {}
