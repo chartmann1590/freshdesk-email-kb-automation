@@ -2,17 +2,13 @@
   "events": [
     {
       "signals": [
+        "security-compliance",
+        "integration-help",
+        "platform-support",
         "group:Technical Support"
       ],
-      "ticket_id": 215,
-      "ts": 1792553623.2229848
-    },
-    {
-      "signals": [
-        "group:Technical Support"
-      ],
-      "ticket_id": 216,
-      "ts": 1792554236.982654
+      "ticket_id": 218,
+      "ts": 1792639492.645741
     }
   ],
   "last_alert": {}
